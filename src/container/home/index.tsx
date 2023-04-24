@@ -5,6 +5,7 @@ import { Button } from "antd";
 import clsx from "clsx";
 import { useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import DashboardChart from "./DashboardChart";
 
 export const DASHBOARD_HOME_MENU_ITEM_PATH = "/";
 
@@ -54,7 +55,7 @@ export default function HomeContainer() {
             onClick={() => setActiveDay(day.name)}
             key={i}
             className={clsx(
-              "border rounded-full transition-all duration-300 px-5 hover:border-mainstackOrange-primary hover:text-mainstackOrange-primary hover:font-semibold  h-12 border-[#EFF1F6] text-mainstackGrey font-semibold text-sm",
+              "border rounded-full transition-all duration-300 px-5 hover:border-mainstackOrange-primary hover:text-mainstackOrange-primary hover:font-semibold h-9 border-[#EFF1F6] text-mainstackGrey font-semibold text-sm",
               {
                 "border-mainstackOrange-primary text-mainstackOrange-primary font-semibold bg-mainstackOrange-secondary":
                   activeDay === day.name,
@@ -75,9 +76,11 @@ export default function HomeContainer() {
           <span className="text-mainstackGrey">All time</span>
         </div>
 
-        <div>
+        <div className="pb-8">
           <div className="text-5xl text-mainstackDark font-semibold">500</div>
         </div>
+
+        <DashboardChart />
       </div>
     </div>
   );
