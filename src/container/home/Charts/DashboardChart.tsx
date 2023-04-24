@@ -64,6 +64,7 @@ const DashboardChart = () => {
           },
           scales: {
             x: {
+              offset:true,
               grid: {
                 display: false,
               },

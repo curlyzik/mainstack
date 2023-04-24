@@ -5,7 +5,8 @@ import { Button } from "antd";
 import clsx from "clsx";
 import { useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import DashboardChart from "./DashboardChart";
+import DashboardChart from "./Charts/DashboardChart";
+import TopLocations from "./TopLocations";
 
 export const DASHBOARD_HOME_MENU_ITEM_PATH = "/";
 
@@ -80,7 +81,13 @@ export default function HomeContainer() {
           <div className="text-5xl text-mainstackDark font-semibold">500</div>
         </div>
 
-        <DashboardChart />
+        <div className="pb-14">
+          <DashboardChart />
+        </div>
+
+        <div className="grid grid-cols-2">
+          <TopLocations />
+        </div>
       </div>
     </div>
   );
