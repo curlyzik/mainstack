@@ -5,17 +5,17 @@ import { Doughnut } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface Props {
-  locations:
+  source:
     | {
-        country: string;
+        source: string;
         count: number;
         percent: number;
       }[]
     | undefined;
 }
-const TopLocationChart: React.FC<Props> = ({ locations }) => {
-  const data = locations?.map((location) => location.percent);
-  const labels = locations?.map((location) => location.country);
+const TopSourceChart: React.FC<Props> = ({ source }) => {
+  const data = source?.map((src) => src.percent);
+  const labels = source?.map((src) => src.source);
 
   return (
     <Doughnut
@@ -53,4 +53,4 @@ const TopLocationChart: React.FC<Props> = ({ locations }) => {
   );
 };
 
-export default TopLocationChart;
+export default TopSourceChart;

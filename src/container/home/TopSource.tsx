@@ -1,32 +1,33 @@
 import { useGetGraphDataQuery } from "@/services/graphApi";
 import React from "react";
-import TopLocationChart from "./Charts/TopLocationChart";
 import { GB, NG, DE, GH, FI } from "country-flag-icons/react/3x2";
+import TopSourceChart from "./Charts/TopSourceChart";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookF } from "react-icons/fa";
+import IconInstagram from "./IconInstagram";
+import IconFacebook from "./IconFacebook";
+import IconLinkedIn from "./IconLinkedIn";
 
-const TopLocations = () => {
+const TopSource = () => {
   const { data: graphData } = useGetGraphDataQuery();
-  const locations = graphData?.data.top_locations;
+  const source = graphData?.data.top_sources;
 
-  const countryFlags = {
-    Nigeria: {
-      flag: <NG />,
+  const sourceIcons = {
+    google: {
+      icon: <FcGoogle />,
       color: "#599eea",
     },
-    Germany: {
-      flag: <DE />,
+    instagram: {
+      icon: <IconInstagram />,
       color: "#844ff6",
     },
-    Finland: {
-      flag: <FI />,
+    facebook: {
+      icon: <IconFacebook />,
       color: "#0fb77a",
     },
-    Ghana: {
-      flag: <GH />,
+    linkedin: {
+      icon: <IconLinkedIn />,
       color: "#fab70a",
-    },
-    "United Kingdom": {
-      flag: <GB />,
-      color: "#f09468",
     },
   } as any;
 
@@ -34,23 +35,23 @@ const TopLocations = () => {
     <div className="p-6">
       <div className="flex justify-between pb-10">
         <span className="text-lg font-semibold text-mainstackDark">
-          Top Locations
+          Top Referral source
         </span>
         <span className="text-mainstackOrange-primary">View full reports</span>
       </div>
 
       <div className="grid grid-cols-2 gap-x-3 items-center">
         <div className="flex flex-col gap-y-[1.188rem]">
-          {locations?.map((location) => (
+          {source?.map((source) => (
             <div className="text-base flex items-center gap-x-2">
               <span className="h-5 w-5 mt-2">
-                {countryFlags[location.country].flag}
+                {sourceIcons[source.source].icon}
               </span>
-              <span>{location.country} </span>{" "}
-              <span className="font-medium">{location.percent}%</span>
+              <span className="capitalize">{source.source} </span>{" "}
+              <span className="font-medium">{source.percent}%</span>
               <div
                 style={{
-                  backgroundColor: countryFlags[location.country].color,
+                  backgroundColor: sourceIcons[source.source].color,
                 }}
                 className="w-3 h-3 rounded-full"
               />
@@ -59,11 +60,11 @@ const TopLocations = () => {
         </div>
 
         <div className="w-full">
-          <TopLocationChart locations={locations} />
+          <TopSourceChart source={source} />
         </div>
       </div>
     </div>
   );
 };
 
-export default TopLocations;
+export default TopSource;
