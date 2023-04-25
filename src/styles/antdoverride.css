@@ -1,0 +1,13 @@
+.ant-menu {
+  @apply flex flex-col gap-2;
+}
+.ant-menu-submenu-title {
+  @apply text-xs font-thin uppercase
+}
+.ant-menu-item {
+  @apply text-base text-[#56616B] font-semibold;
+}
+
+.ant-menu-light .ant-menu-item-selected {
+  @apply bg-[#fff] text-mainstackOrange-primary;
+}

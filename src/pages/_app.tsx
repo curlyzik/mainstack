@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { LayoutProps } from "@/typings";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -14,6 +15,9 @@ export default function App({
 
   return (
     <React.Fragment>
+      <Head>
+        <title>Mainstack Dashboard</title>
+      </Head>
       <QueryClientProvider client={queryClient}>
         {getLayout(<Component {...pageProps} />)}
       </QueryClientProvider>
