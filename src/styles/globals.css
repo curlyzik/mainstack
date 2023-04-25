@@ -3,3 +3,4 @@
 @tailwind utilities;
 
 @import "./fonts.css";
+@import "./antdoverride.css";
