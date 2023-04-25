@@ -32,7 +32,7 @@ const TopSource = () => {
   } as any;
 
   return (
-    <div className="p-6">
+    <div className="p-6 border-[#EFF1F6] border rounded-xl">
       <div className="flex justify-between pb-10">
         <span className="text-lg font-semibold text-mainstackDark">
           Top Referral source
