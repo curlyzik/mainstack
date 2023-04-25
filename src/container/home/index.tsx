@@ -36,7 +36,7 @@ export default function HomeContainer() {
     { name: "Custom Date" },
   ];
   return (
-    <div>
+    <div className="pb-6">
       <header className="flex justify-between items-center pb-6">
         <div className="flex flex-col gap-[0.625rem]">
           <span className="text-2xl font-semibold">
@@ -69,7 +69,7 @@ export default function HomeContainer() {
         ))}
       </div>
 
-      <div className="border py-9 px-6 border-[#EFF1F6] rounded-xl">
+      <div className="border py-9 pb-8 px-6 border-[#EFF1F6] rounded-xl">
         <div className="flex flex-col gap-2 pb-6">
           <div className="flex justify-between items-center">
             <span className="text-lg font-semibold">Page Views</span>
@@ -82,14 +82,12 @@ export default function HomeContainer() {
           <div className="text-5xl text-mainstackDark font-semibold">500</div>
         </div>
 
-        <div className="pb-12">
-          <DashboardChart />
-        </div>
+        <DashboardChart />
+      </div>
 
-        <div className="grid grid-cols-2 gap-x-4">
-          <TopLocations />
-          <TopSource />
-        </div>
+      <div className="grid grid-cols-2 pt-6 gap-x-4">
+        <TopLocations />
+        <TopSource />
       </div>
     </div>
   );
