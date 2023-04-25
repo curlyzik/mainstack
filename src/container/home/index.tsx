@@ -8,6 +8,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import DashboardChart from "./Charts/DashboardChart";
 import TopLocations from "./TopLocations";
 import TopSource from "./TopSource";
+import { TbLayoutDashboard } from "react-icons/tb";
 
 export const DASHBOARD_HOME_MENU_ITEM_PATH = "/";
 
@@ -22,7 +23,7 @@ export const dashboardHomeMenuItem: ItemType = {
       Dashboard
     </Link>
   ),
-  icon: <IconHome className="h-5" />,
+  icon: <TbLayoutDashboard className="text-base" />,
 };
 export default function HomeContainer() {
   const [activeDay, setActiveDay] = useState("");
