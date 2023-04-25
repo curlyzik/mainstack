@@ -13,6 +13,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { useGetGraphDataQuery } from "@/services/graphApi";
 import dayjs from "dayjs";
+import { Spin } from "antd";
 
 ChartJS.register(
   CategoryScale,
@@ -26,7 +27,7 @@ ChartJS.register(
 );
 
 const DashboardChart = () => {
-  const { data: graphData } = useGetGraphDataQuery();
+  const { data: graphData, isLoading } = useGetGraphDataQuery();
 
   const labels =
     graphData &&
@@ -36,6 +37,13 @@ const DashboardChart = () => {
 
   const data = graphData && Object.values(graphData.data.graph_data.views);
 
+  if (isLoading) {
+    return (
+      <div className="grid place-items-center">
+        <Spin size="large" />
+      </div>
+    );
+  }
   return (
     <div>
       <Line
@@ -45,7 +53,7 @@ const DashboardChart = () => {
             {
               fill: true,
               data: data,
-              borderWidth: 1,
+              borderWidth: 2,
               pointRadius: 3,
               borderColor: "rgb(255, 84, 3)",
               backgroundColor: "rgba(255, 83, 3, 0.116)",
@@ -64,7 +72,7 @@ const DashboardChart = () => {
           },
           scales: {
             x: {
-              offset:true,
+              offset: true,
               grid: {
                 display: false,
               },
